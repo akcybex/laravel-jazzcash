@@ -21,19 +21,9 @@ class AKJazzCashServiceProvider extends ServiceProvider
             $this->registerPublishableResources();
         }
 
-        $this->app->bind('jazzcash', function($app) {
+        $this->app->singleton('jazzcash', function () {
             return new JazzCash();
         });
-    }
-
-    /**
-     * Bootstrap services.
-     *
-     * @return void
-     */
-    public function boot()
-    {
-
     }
 
     /**
@@ -41,9 +31,17 @@ class AKJazzCashServiceProvider extends ServiceProvider
      */
     protected function loadHelpers()
     {
-        foreach (glob(__DIR__.'/Helpers/*.php') as $filename) {
+        foreach (glob(__DIR__ . '/Helpers/*.php') as $filename) {
             require_once $filename;
         }
+    }
+
+    public function registerConfigs()
+    {
+        $this->mergeConfigFrom(
+            dirname(__DIR__) . '/publishable/config/jazzcash.php',
+            'jazzcash'
+        );
     }
 
     /**
@@ -51,7 +49,7 @@ class AKJazzCashServiceProvider extends ServiceProvider
      */
     private function registerPublishableResources()
     {
-        $publishablePath = dirname(__DIR__).'/publishable';
+        $publishablePath = dirname(__DIR__) . '/publishable';
 
         $publishable = [
             'config' => [
@@ -65,11 +63,13 @@ class AKJazzCashServiceProvider extends ServiceProvider
         }
     }
 
-    public function registerConfigs()
+    /**
+     * Bootstrap services.
+     *
+     * @return void
+     */
+    public function boot()
     {
-        $this->mergeConfigFrom(
-            dirname(__DIR__).'/publishable/config/jazzcash.php',
-            'jazzcash'
-        );
+        $this->loadMigrationsFrom(realpath(__DIR__ . '/../migrations'));
     }
 }

@@ -1,8 +1,10 @@
 <?php
 
-namespace AKCybex\JazzCash;
+namespace AKCybex\JazzCash\JazzCashModes\Http;
 
-class JazzCash
+use AKCybex\JazzCash\Models\JazzCashTransaction;
+
+class JazzCashRedirectRequest
 {
     /**
      * @var array
@@ -278,9 +280,14 @@ class JazzCash
     /**
      * @return array
      */
-    public function toArray()
+    public function toArray($order = [])
     {
         $this->generateSecureHash();
+        JazzCashTransaction::create([
+            'txn_ref_no' => $this->data['pp_TxnRefNo'],
+            'order'      => $order,
+            'request'    => $this->data,
+        ]);
         return $this->data;
     }
 
