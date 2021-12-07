@@ -57,9 +57,9 @@ class JazzCashRedirectResponse
         return $this->transaction->order;
     }
 
-    public function response()
+    public function transaction()
     {
-        return $this->transaction->order;
+        return $this->transaction;
     }
 
     public function amount()
