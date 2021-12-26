@@ -1,7 +1,6 @@
 {
     "name": "akcybex/laravel-jazzcash",
     "description": "Jazzcash - Laravel Jazzcash Payment Gateway Integration",
-    "type": "project",
     "license": "MIT",
     "autoload": {
         "psr-4": {
