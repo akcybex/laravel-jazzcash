@@ -102,8 +102,10 @@ Route::post('/jazzcash/payment', function (\Illuminate\Http\Request $request, $g
 // ...
 ```
 
-###Support
+### Support
+
 [Contact Us](https://akcybex.com/contact)
+
 ### Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
