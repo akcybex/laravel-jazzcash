@@ -300,12 +300,12 @@ class JazzCashRedirectRequest
 
         $str = '';
         foreach ($this->data as $key => $value) {
-            if (!empty($value)) {
+            if (!empty($value) && $key !== 'pp_HashKey') {
                 $str = $str . '&' . $value;
             }
         }
 
-        $str .= $this->data['pp_HashKey'] . $str;
+        $str = $this->data['pp_HashKey'] . $str;
 
         $this->data['pp_SecureHash'] = hash_hmac('sha256', $str, $this->data['pp_HashKey']);
     }
