@@ -1,4 +1,5 @@
-<p align="center" style="margin-bottom: 30px"><a href="https://sandbox.jazzcash.com.pk/Sandbox/Home/GettingStarted" target="_blank"><img src="https://sandbox.jazzcash.com.pk/Sandbox/Content/images/logo_JazzCash.png" alt="Jazzcash" width="200"></a></p>
+<br/><br/>
+<p align="center" style="margin-bottom: 30px; margin-top: 100px"><a href="https://sandbox.jazzcash.com.pk/Sandbox/Home/GettingStarted" target="_blank"><img src="https://sandbox.jazzcash.com.pk/Sandbox/Content/images/logo_JazzCash.png" alt="Jazzcash" width="200"></a></p>
 
 <p align="center">
 <a href="https://travis-ci.org/akcybex/laravel-jazzcash"><img src="https://travis-ci.org/akcybex/laravel-jazzcash.svg" alt="Build Status"></a>
